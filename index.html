@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matthew Marstaller</title>
+        <meta charset="UTC-8" />
+
+        <style>
+            #title {
+                font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+                font-size: 30px;
+            }
+
+            #subtitle {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 100;
+                color: #626262;
+                font-size: 18px;
+                padding-top: 5px;
+            }
+
+            #footer {
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 100;
+                color: #626262;
+                font-size: 14px;
+                bottom: 25px;
+                padding-top: 250px;
+            }
+
+            #container {
+                width: 800px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 150px;
+            }
+
+            a:link {
+                color: #626262;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #626262;
+                text-decoration: underline;
+            }
+
+            #hire-me {
+                width: 356px;
+                margin: 0px auto;
+                padding-top: 50px;
+            }
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var subtitle = ["Entrepreneur. Educator.", "Graduate of Seabreeze Senior High School.", "Knight at the University of Central Florida."];
+
+                var position = getArrayPosition(-1, subtitle);
+
+                $("#subtitle").fadeIn(function () {
+                    $(this).text(subtitle[position]);
+                    position = getArrayPosition(position, subtitle);
+                });
+
+                setInterval(function () {
+                    $("#subtitle")
+                        .fadeOut(function () {
+                            $(this).text(subtitle[position]);
+                            position = getArrayPosition(position, subtitle);
+                        })
+                        .fadeIn();
+                }, 22000);
+            });
+
+            function getArrayPosition(currentPosition, arrayList) {
+                var newPosition = Math.floor(Math.random() * arrayList.length);
+                if (newPosition == currentPosition) {
+                    return getArrayPosition(currentPosition, arrayList);
+                }
+                return newPosition;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="title">Matthew Marstaller</div>
+            <div id="subtitle"><noscript>Entrepreneur. Educator.</noscript></div>
+        </div>
+
+        <div id="footer">Thank you for your patience as I create my website.</div>
+    </body>
+</html>
+
